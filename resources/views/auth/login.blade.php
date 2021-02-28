@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2" id="main-container">
             <div class="panel panel-default">
-                <div class="page-panel-title">@lang('Login')</div>
+                <div class="page-panel-title text-center" style="font-weight: 600; font-size: 5rem;margin-top: 10rem">@lang('Login')</div>
                 
                 @if ($errors->any())
                     <div class="alert alert-danger">

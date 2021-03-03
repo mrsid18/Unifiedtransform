@@ -14,7 +14,7 @@
             @include('layouts.leftside-menubar')
         </div>
         <div class="col-md-10" id="main-container">
-            <h2>@lang('All Classes and Sections')</h2>
+            <h1 class="page-panel-title">@lang('All Classes and Sections')</h>
             <div class="panel panel-default" id="cls-sec">
               @if(count($classes) > 0)
                 @foreach ($classes as $class)

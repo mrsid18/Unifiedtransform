@@ -1,5 +1,5 @@
 <nav class="navbar navbar-default navbar-static-top">
-    <div class="container">
+    <div class="col-md-2" id="title">
         <div class="navbar-header">
 
             <!-- Collapsed Hamburger -->
@@ -12,13 +12,14 @@
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/home') }}" style="color: #000;">
+            <a class="navbar-brand" id="title-text" href="{{ url('/home') }}">
                 {{ (Auth::check() && (Auth::user()->role == 'student' || Auth::user()->role == 'teacher' ||
                 Auth::user()->role == 'admin' || Auth::user()->role == 'accountant' || Auth::user()->role ==
-                'librarian'))?Auth::user()->school->name:config('app.name') }}
+                'librarian'))?Auth::user()->school->name:'SKULI EDU' }}
             </a>
         </div>
-
+</div>
+<div class="col-md-10" style="padding-right: 5rem;">
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
 

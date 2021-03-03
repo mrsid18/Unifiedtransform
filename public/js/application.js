@@ -25,3 +25,10 @@ function all_images() {
 function datepicker_format() {
     $('.datepicker').datepicker({format: 'yyyy-mm-dd'});
 }
+
+if (document.getElementById("side-navbar")) {
+    $("#title").css({
+        "background-color": "var(--theme)",
+    });
+    $("#title-text").css("color", "#fff");
+}

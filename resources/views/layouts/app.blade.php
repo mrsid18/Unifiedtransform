@@ -24,7 +24,7 @@
             }
         });
     </script>
-    <script src="{{ url('js/application.js') }}"></script>
+    <script src="{{ url('js/application.js') }}" defer></script>
     @yield('after_scripts')
 </head>
 

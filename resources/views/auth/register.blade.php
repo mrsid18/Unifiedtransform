@@ -11,7 +11,7 @@
             @include('layouts.leftside-menubar')
         </div>
         @else
-        <div class="col-md-3" id="side-navbar">
+        <div class="col-md-2" id="side-navbar">
             <ul class="nav flex-column">
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ route('schools.index') }}"><i class="material-icons">gamepad</i> <span class="nav-link-text">@lang('Back to Manage School')</span></a>

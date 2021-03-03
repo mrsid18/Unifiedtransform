@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container-fluid">
-        <div class="col-md-12" id="main-container">
+        <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-body table-responsive">
                     @include('schools.form')

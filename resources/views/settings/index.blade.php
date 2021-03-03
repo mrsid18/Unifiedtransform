@@ -1,8 +1,16 @@
 @extends('layouts.app')
 
 @section('title', __('Academic Settings'))
-
+@section('after_scripts')
+<style>
+    th{
+        font-size:2rem!important;
+        font-weight: 600!important;
+    }
+</style>
+@endsection
 @section('content')
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-2" id="side-navbar">
@@ -126,14 +134,14 @@
                             </thead>
                         </table>
 
-                        <h4>@lang('Add Users')</h4>
+                        <h3>@lang('Manage Users')</h3>
                         <table class="table table-condensed" style="width:600px">
                             <thead>
                                 <tr>
-                                    <th scope="col">+@lang('Student')</th>
-                                    <th scope="col">+@lang('Teacher')</th>
-                                    <th scope="col">+@lang('Accountant')</th>
-                                    <th scope="col">+@lang('Librarian')</th>
+                                    <th scope="col">Add @lang('Student')</th>
+                                    <th scope="col">Add @lang('Teacher')</th>
+                                    <th scope="col">Add @lang('Accountant')</th>
+                                    <th scope="col">Add @lang('Librarian')</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -162,29 +170,6 @@
                             </tbody>
                         </table>
 
-                        <h4>@lang('Upload')</h4>
-                        <table class="table table-condensed" style="width:400px">
-                            <thead>
-                                <tr>
-                                    <th scope="col">+@lang('Notice')</th>
-                                    <th scope="col">+@lang('Event')</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <a class="btn btn-info btn-sm" href="{{ url('academic/notice') }}">
-                                            <i class="material-icons">developer_board</i> @lang('Upload Notice')
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-info btn-sm" href="{{ url('academic/event') }}">
-                                            <i class="material-icons">developer_board</i> @lang('Upload Event')
-                                        </a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
                     </div>
                 </div>
             </div>

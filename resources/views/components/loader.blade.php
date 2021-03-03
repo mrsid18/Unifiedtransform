@@ -1,3 +1,3 @@
 <div class="loader">
-    <img src="{{asset('01-progress.gif')}}" class="loader-gif" />
+    <img src="{{asset('loading.svg')}}" class="loader-gif" />
 </div>

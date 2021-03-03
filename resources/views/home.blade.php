@@ -24,7 +24,7 @@
                     </div>
                     @endif
                     <div class="row">
-                        <div class="page-panel-title">@lang('Dashboard')</div>
+                        <h1 class="page-panel-title">@lang('Dashboard')</h1>
                         <div class="col-sm-2">
                             <div class="card text-white bg-primary mb-3">
                                 <div class="card-header">@lang('Students') - <b>{{$totalStudents}}</b></div>

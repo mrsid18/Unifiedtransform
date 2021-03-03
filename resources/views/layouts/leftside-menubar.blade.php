@@ -6,21 +6,26 @@
   });
 </script>
 <style>
+  .dropdown-item span, .dropdown-item, .nav-item.active a span,.nav-item.active a, .nav-item.dropdown.open a,  .nav-item.dropdown.open a span{
+    color: var(--theme)!important;
+  }
+
+  .nav-link:hover, .nav-link:hover span{
+    color: #011627;
+  }
+
   .nav-item.active {
-    background-color: #fce8e6;
+    background-color: #fff;
     font-weight: bold;
   }
 
-  .nav-item.active a {
-    color: #d93025;
+  .nav-item a{
+    color: #fff;
   }
 
   .nav-link-text {
     padding-left: 10%;
-  }
-
-  #side-navbar ul>li>a {
-    padding: 8px 15px;
+    color: white;
   }
 </style>
 {{--@if(Auth::user()->role != 'master')

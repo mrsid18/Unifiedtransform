@@ -96,6 +96,7 @@ Route::middleware(['auth', 'admin'])->prefix('academic')->name('academic.')->gro
     Route::get('syllabus/{class_id}', 'SyllabusController@create');
     Route::get('notice', 'NoticeController@create');
     Route::get('event', 'EventController@create');
+    Route::post('event','EventController@store');
     Route::get('certificate', 'CertificateController@create');
     Route::get('routine', 'RoutineController@index');
     Route::get('routine/{section_id}', 'RoutineController@create');

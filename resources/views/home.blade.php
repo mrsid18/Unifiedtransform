@@ -1,5 +1,14 @@
 @extends('layouts.app')
 
+{{-- @section('title', __('Add Event')) --}}
+@section('after_scripts')
+<link rel="stylesheet" href="{{ url('css/calendar.css') }}">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/js/evo-calendar.min.js"></script>
+<script src="{{ url('js/calendar.js')}}" defer></script>
+
+@endsection
+
 @section('content')
 <style>
     .badge-download {
@@ -109,27 +118,10 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-4">
+                        <div class="col-md-8">
                             <div class="panel panel-default">
                                 <div class="page-panel-title">@lang('Events')</div>
-                                <div class="panel-body pre-scrollable">
-                                    @if(count($events) > 0)
-                                    <div class="list-group">
-                                        @foreach($events as $event)
-                                        <a href="{{url($event->file_path)}}" class="list-group-item" download>
-                                            <i class="badge badge-download material-icons">
-                                                get_app
-                                            </i>
-                                            <h5 class="list-group-item-heading">{{$event->title}}</h5>
-                                            <p class="list-group-item-text">@lang('Published at'):
-                                                {{$event->created_at->format('M d Y')}}</p>
-                                        </a>
-                                        @endforeach
-                                    </div>
-                                    @else
-                                    @lang('No New Event')
-                                    @endif
-                                </div>
+                                <div id="calendar"></div>
                             </div>
                         </div>
                         <div class="col-sm-4">
@@ -184,4 +176,7 @@
         </div>
     </div>
 </div>
+<script>
+     let events = <?= json_encode($events); ?>
+</script>
 @endsection

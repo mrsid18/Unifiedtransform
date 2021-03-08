@@ -25,8 +25,8 @@ class EventController extends Controller
      */
     public function create()
     {
-      $files = Event::bySchool(\Auth::user()->school_id)->where('active',1)->get();
-      return view('events.create',['files'=>$files]);
+      $events = Event::bySchool(\Auth::user()->school_id)->get();
+      return view('events.create',['events' => $events]);
     }
 
     /**
@@ -36,15 +36,32 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-      $tb = new Event;
-      $tb->file_path = $request->file_path;
-      $tb->title = $request->title;
-      $tb->active = 1;
-      $tb->school_id = \Auth::user()->school_id;
-      $tb->user_id = \Auth::user()->id;
-      $tb->save();
-      return back()->with('status', __('Uploaded'));
+    {   $event = new Event;
+      $validateData = $request->validate([
+        'title' => 'required',
+        'starts_from' => 'required|date',
+        
+      ]);
+        // dd($request);
+      $event->school_id = \Auth::user()->school_id;
+      $event->user_id = \Auth::user()->id;
+      $event->title = $request->title;
+      $event->starts_from = $request->starts_from;
+      $event->ends_at = ($request->ends_at == NULL)? $request->starts_from : $request->ends_at;
+      // $event->description = $request->description;
+      $event->event_type = $request->type;
+      $event->save();
+      return back()->with('status', __('Event Created'));
+
+      // $tb = new Event;
+      // $tb->file_path = $request->file_path;
+      // $tb->title = $request->title;
+      // $tb->active = 1;
+      // $tb->school_id = \Auth::user()->school_id;
+      // $tb->user_id = \Auth::user()->id;
+      // $tb->save();
+   
+      // dd($event);
     }
 
     /**

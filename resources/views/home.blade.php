@@ -118,13 +118,13 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-lg-6 col-sm-12">
                             <div class="panel panel-default">
                                 <div class="page-panel-title">@lang('Events')</div>
                                 <div id="calendar"></div>
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-lg-6 col-sm-6" style="padding-top:5rem">
                             <div class="panel panel-default">
                                 <div class="page-panel-title">@lang('Routines')</div>
                                 <div class="panel-body pre-scrollable">
@@ -147,7 +147,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-lg-6 col-sm-6">
                             <div class="panel panel-default">
                                 <div class="page-panel-title">@lang('Syllabus')</div>
                                 <div class="panel-body pre-scrollable">

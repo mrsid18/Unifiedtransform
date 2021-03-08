@@ -262,7 +262,7 @@
     // v1.0.0 - Limit title (...)
     EvoCalendar.prototype.limitTitle = function(title, limit) {
         var newTitle = [];
-        limit = limit === undefined ? 18 : limit;
+        limit = limit === undefined ? 50 : limit;
         if ((title).split(' ').join('').length > limit) {
             var t = title.split(' ');
             for (var i=0; i<t.length; i++) {
@@ -1130,6 +1130,10 @@ document.addEventListener('DOMContentLoaded', function() {
             $("#calendar").evoCalendar({
                 calendarEvents: eve,
                 todayHighlight: true,
-                sidebarDisplayDefault: false
+                sidebarDisplayDefault: false,
+                eventListToggler: true
             });
+    $(".calendar-day").on("click", function () {
+        $('#calendar').evoCalendar('toggleEventList');
+            })
   });

@@ -636,7 +636,7 @@ button.icon-button > span.chevron-arrow-right {
     }
 }
 /* md */
-@media screen and (max-width: 991px) {
+/* @media screen and (max-width: 991px) {
     .calendar-sidebar {
         width: 150px;
     }
@@ -655,10 +655,10 @@ button.icon-button > span.chevron-arrow-right {
         width: 275px;
         padding: 70px 10px 60px 10px;
     }
-}
+} */
 
 /* sm */
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) { */
     .calendar-sidebar {
         width: 180px;
     }
@@ -708,6 +708,7 @@ button.icon-button > span.chevron-arrow-right {
                 transform: translateX(100%);
     }
     .event-hide #eventListToggler {
+        right: 0%;
         -webkit-transform: translateX(0);
             -ms-transform: translateX(0);
                 transform: translateX(0);
@@ -745,7 +746,7 @@ button.icon-button > span.chevron-arrow-right {
     .event-container > .event-info > p.event-desc {
         font-size: 12px;
     }
-}
+/* } */
 /* sm only */
 @media screen and (max-width: 768px) and (min-width: 426px) {
     .event-container > .event-info > p.event-title {

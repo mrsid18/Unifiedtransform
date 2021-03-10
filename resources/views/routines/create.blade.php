@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
-@section('title', __('Add Routine'))
+@section('title', __('Add TimeTable'))
+@section('after_scripts')
+    <style>
+        h3{
+            display: none;
+        }
+    </style>
+@endsection
 
 @section('content')
 <div class="container-fluid">
@@ -10,7 +17,7 @@
         </div>
         <div class="col-md-10" id="main-container">
             <div class="panel panel-default">
-                <div class="page-panel-title">@lang('Add Routine')
+                <div class="page-panel-title">@lang('Add TimeTable')
               </div>
                 <div class="panel-body">
                     @if (session('status'))

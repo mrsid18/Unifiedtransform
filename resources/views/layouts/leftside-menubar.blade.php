@@ -94,7 +94,7 @@
   </li>
   <li class="nav-item" style="border-bottom: 1px solid #dbd8d8;"></li>
   <li class="nav-item">
-    <a class="nav-link" href="{{ url('academic/routine') }}"><i class="material-icons">calendar_today</i> <span class="nav-link-text">@lang('Class Routine')</span></a>
+    <a class="nav-link" href="{{ url('academic/routine') }}"><i class="material-icons">calendar_today</i> <span class="nav-link-text">@lang('Class TimeTable')</span></a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="{{ url('academic/syllabus') }}"><i class="material-icons">vertical_split</i> <span class="nav-link-text">@lang('Syllabus')</span></a>

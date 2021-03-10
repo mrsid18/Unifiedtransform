@@ -121,12 +121,12 @@
                         <div class="col-lg-6 col-sm-12">
                             <div class="panel panel-default">
                                 <div class="page-panel-title">@lang('Events')</div>
-                                <div id="calendar"></div>
+                                <div id="calendar" style="width: 75%"></div>
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-6" style="padding-top:5rem">
                             <div class="panel panel-default">
-                                <div class="page-panel-title">@lang('Routines')</div>
+                                <div class="page-panel-title">@lang('TimeTable')</div>
                                 <div class="panel-body pre-scrollable">
                                     @if(count($routines) > 0)
                                     <div class="list-group">
@@ -142,7 +142,7 @@
                                         @endforeach
                                     </div>
                                     @else
-                                    @lang('No New Routine')
+                                    @lang('No TimeTable Found')
                                     @endif
                                 </div>
                             </div>

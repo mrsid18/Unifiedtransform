@@ -48,7 +48,7 @@
                                             @if(isset($_GET['course']) && $_GET['course'] == 1)
                                             <th>@lang('View Courses')</th>
                                             <th>@lang('View Students')</th>
-                                            <th>@lang('View Routines')</th>
+                                            <th>@lang('View Time Table')</th>
                                             @endif
                                         </tr>
                                     </thead>
@@ -95,7 +95,7 @@
                                                 <a role="button" class="btn btn-danger btn-xs" href="{{url('section/students/'.$section->id.'?section=1')}}"><i class="material-icons">visibility</i> @lang('View Students of this section')</a>
                                             </td>
                                             <td>
-                                                <a role="button" class="btn btn-primary btn-xs" href="{{url('academic/routine/'.$section->id)}}"><i class="material-icons">visibility</i> @lang('View Routines for this section')</a>
+                                                <a role="button" class="btn btn-primary btn-xs" href="{{url('academic/routine/'.$section->id)}}"><i class="material-icons">visibility</i> @lang('View Time Table for this section')</a>
                                             </td>
                                             @endif
                                             </tr>

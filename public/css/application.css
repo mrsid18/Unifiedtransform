@@ -25,7 +25,9 @@ a:hover,
 a:focus {
     color: #202124;
 }
-
+#menu-btn{
+    cursor: pointer;
+}
 .panel {
     box-shadow: none;
 }
@@ -172,18 +174,24 @@ a.navbar-brand{
 }
 
 #side-navbar {
+    opacity: 1;
     background-color:var(--theme);
     padding-top: 1%;
     padding-right: 0%;
     font-size: 13px;
     font-weight: bold;
-    height: 100%; /* 100% Full-height */ /* 0 width - change this with JavaScript */
+    height: 100%; 
+    width: 16.667%;/* 100% Full-height */ /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
   z-index: 99; /* Stay on top */
   top: auto; /* Stay at the top */
   left: 0;
   overflow-x: hidden; /* Disable horizontal scroll */
-transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+.hiddennav{
+    width: 0%;
+    opacity: 0!important;
 }
 
 .navbar-nav .open .dropdown-menu {
@@ -225,6 +233,7 @@ transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 
 #main-container{
     margin-left: 16.66667%;
+    transition: margin-left .5s;
 }
 
 .pagination {
@@ -240,4 +249,16 @@ transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
     padding-top: 0px !important;
     padding-bottom: 0px !important;
     line-height: 60px !important;
+}
+.nav.flex-column{
+    padding-bottom: 35rem;
+}
+#side-navbar {
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+#side-navbar::-webkit-scrollbar { /* WebKit */
+    width: 0;
+    height: 0;
 }

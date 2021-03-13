@@ -25,10 +25,30 @@ function all_images() {
 function datepicker_format() {
     $('.datepicker').datepicker({format: 'yyyy-mm-dd'});
 }
-
-if (document.getElementById("side-navbar")) {
+var sidenav = document.getElementById("side-navbar");
+if (sidenav) {
     $("#title").css({
         "background-color": "var(--theme)",
     });
     $("#title-text").css("color", "#fff");
 }
+
+$("#menu-btn").on("click", function () {
+    $("#side-navbar").toggleClass("hiddennav");
+    
+    if (window.getComputedStyle(sidenav).getPropertyValue("opacity") != 0) {
+        $("#title").css({
+            "background-color": "var(--theme)",
+        });
+        $("#title-text,#menu-btn").css("color", "#fff");
+        $("#main-container").css("margin-left", "16.667%");
+        $("#main-container").removeClass("col-md-12");
+        $("#main-container").addClass("col-md-10");
+    } else {
+        $("#title").css("background-color", "#fff");
+        $("#title-text, #menu-btn").css("color", "unset");
+        $("#main-container").css("margin-left", "0");
+        $("#main-container").removeClass("col-md-10");
+        $("#main-container").addClass("col-md-12");
+    }
+})

@@ -1136,4 +1136,5 @@ document.addEventListener('DOMContentLoaded', function() {
     $(".calendar-day").on("click", function () {
         $('#calendar').evoCalendar('toggleEventList');
             })
-  });
+});
+  

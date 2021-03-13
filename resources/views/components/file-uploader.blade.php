@@ -1,13 +1,13 @@
 <div id="my_upload">
     @if($upload_type != 'profile')
-        <h3>{{__(ucfirst($upload_type))}}</h3>
+        {{-- <h3>{{__(ucfirst($upload_type))}}</h3> --}}
         <label for="upload-title">@lang('File Title'): </label>
         <input type="text" class="form-control" name="upload-title" id="upload-title" placeholder="@lang('File title here...')" required>
         <br/>
     @endif
     @if($upload_type == 'certificate')
         <label for="sections">Certificate Given to Student Code:</label>
-        <input type="text" class="form-control" name="to_student_code" id="to_student_code" placeholder="Student Code here..." required>
+        <input type="number" class="form-control" name="to_student_code" id="to_student_code" placeholder="Student Code here..." required>
         <br/>
     @endif
     @if($upload_type == 'routine')
@@ -31,6 +31,35 @@
             </option>
             @endforeach
         </select>
+    @endif
+    @if ($upload_type == 'papers')
+    <div class="row">
+    <div class="form-group col-md-6">
+    <label for="classes">Class</label>
+    <select id="classes" class="form-control" name="classes" required>
+        @foreach($classes as $class)
+        <option value="{{$class->id}}">
+            @lang('Class'): {{$class->class_number}}
+        </option>
+        @endforeach
+    </select>
+    </div>
+    <div class="form-group col-md-6">
+    <label for="subject">Subject</label>
+    <select name="subject" class="form-control" id="subject">
+        <option value="mathematics">Mathematics</option>
+        <option value="science">Science</option>
+        <option value="swahili">Swahili</option>
+        <option value="english">English</option>
+        <option value="ss">Social Studies</option>
+        <option value="computer">Computer</option>
+    </select>
+    </div>
+    </div>
+    <div class="form-group">
+        <label for="year">Year</label>
+        <input type="number" class="form-control" name="year" id="year">
+    </div>
     @endif
   <input class="form-control-sm" id="fileupload" type="file"  accept=".xlsx,.xls,.doc,.docx,.ppt,.pptx,.txt,.pdf,image/png,image/jpeg" name="file" data-url="{{url('upload/file')}}">
   <br/>
@@ -85,7 +114,7 @@ $(function () {
                         $this.off('click').text(@json( __('Abort'))).on('click', function () {
                             $this.remove();
                             data.abort();
-                            data.context.text(@json( __('File Upload has been canceled')));
+                            data.context.text(@json( __('File Upload has been cancelled')));
                         });
                         @if($upload_type != 'profile')
                             @if($upload_type == 'routine')
@@ -94,6 +123,8 @@ $(function () {
                                 data.formData = {upload_type: '{{$upload_type}}',class_id:$('#classes').val(),title: $('#upload-title').val()};
                             @elseif($upload_type == 'notice')
                                 data.formData = {upload_type: '{{$upload_type}}',title: $('#upload-title').val()};
+                            @elseif($upload_type == 'papers')
+                            data.formData = {upload_type: '{{$upload_type}}',class_id:$('#classes').val(),title: $('#upload-title').val(), subject: $('#subject').val(), year: $('#year').val()};
                             @elseif($upload_type == 'certificate')
                                 data.formData = {upload_type: '{{$upload_type}}',title: $('#upload-title').val(), given_to: $('#to_student_code').val()}; //certificate
                             @endif
@@ -147,7 +178,7 @@ $(function () {
         }
     })
     .on('fileuploadfail', function (e, data) {
-            data.context.text(@json( __('File Upload has been canceled')));
+            data.context.text(@json( __('File Upload has been cancelled')));
             var error = data['jqXHR']['responseJSON']['error'];
             $('#errorAlert').text(error);
             console.log(data['jqXHR']['responseJSON']);

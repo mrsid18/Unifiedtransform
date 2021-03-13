@@ -95,10 +95,8 @@ class EventController extends Controller
      */
     public function update($id)
     {
-      $tb = Event::find($id);
-      $tb->active = 0;
-      $tb->save();
-      return back()->with('status','File removed');
+      $tb = Event::destroy($id);
+      return back()->with('status','Event removed');
     }
 
     /**

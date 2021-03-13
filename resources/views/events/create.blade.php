@@ -1,13 +1,7 @@
 @extends('layouts.app')
 
 @section('title', __('Add Event'))
-@section('after_scripts')
-<link rel="stylesheet" href="{{ url('css/calendar.css') }}">
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-{{-- <script src="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/js/evo-calendar.min.js"></script> --}}
-<script src="{{ url('js/calendar.js')}}" defer></script>
 
-@endsection
 
 @section('content')
 <div class="container-fluid">
@@ -60,14 +54,39 @@
                     </form>
                       <div>
                         <div class="page-panel-title">@lang('Active Events')</div>
-                          <div id="calendar" style="width: 80%;margin-top:3rem"></div>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-data-div table-hover">
+                              <thead>
+                                <tr>
+                                  <th scope="col">#</th>
+                                  <th scope="col">Title</th>
+                                  <th scope="col">Description</th>
+                                  <th scope="col">Starts From</th>
+                                  <th scope="col">End Date</th>
+                                  <th scope="col">Actions</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                @foreach ($events as $event)
+                                <tr>
+                                 <td>{{($loop->index + 1)}}</td>
+                                 <td>{{$event->title}}</td>
+                                 <td>{{$event->description}}</td>
+                                 <td>{{$event->starts_from}}</td>
+                                 <td>{{$event->ends_at}}</td>
+                                 <td><a href="{{'remove/event/'.$event->id}}" class="btn btn-sm btn-danger"><i class="material-icons" role="button">delete</i> Remove</a></td>
+                                </tr>
+                                @endforeach
+                              </tbody>
+                            </table>
+                        </div>
                       </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<script>
+{{-- <script>
       let events = <?= json_encode($events); ?>
      
     // // let eve = events.map(item => ({id: events.id, title: events.title}));
@@ -85,6 +104,6 @@
     //             });
     //   });
 
-</script>
+</script> --}}
 
 @endsection

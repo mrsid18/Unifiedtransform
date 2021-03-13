@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Paper as Paper;
+use App\Http\Resources\PaperResource;
 use Illuminate\Http\Request;
 use App\Services\Exam\ExamService;
 use App\Http\Requests\Exam\CreateExamRequest;
@@ -137,4 +139,31 @@ class ExamController extends Controller
     {
         //
     }
+
+    public function papers(){
+        $files = Paper::with('myclass')
+                          ->where('school_id',\Auth::user()->school_id)
+                          ->get();
+        $classes = \App\Myclass::bySchool(\Auth::user()->school->id)
+                          ->get();
+        return view('exams.papers.create',['classes'=>$classes,'class_id' => 0, 'files'=>$files]);
+    }
+
+    public function deletePaper($id){
+        Paper::destroy($id);
+        return back()->with('status',__('File removed'));
+    }
+
+    // public function storePapers(Request $request){
+    //     $paper = new Paper;
+    //     $paper->class_id = $request->class_id;
+    //     $paper->title = $request->title;
+    //     $paper->year = $request->year;
+    //     $paper->subject = $request->subject;
+    //     $paper->file_path = $request->file_path;
+    //     $paper->school_id = \Auth::user()->school_id;
+    //     $paper->user_id = \Auth::user()->id;
+    //     $paper->save();
+    //     return back()->with('status', __('Uploaded'));
+    // }
 }

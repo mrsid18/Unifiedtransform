@@ -81,7 +81,22 @@ class UploadController extends Controller {
       $tb->class_id = $request->class_id;
       $tb->user_id = auth()->user()->id;
       $tb->save();
-    } else if($request->upload_type == 'certificate'){
+    } else if($request->upload_type == 'papers'){
+      $request->validate([
+        'title' => 'required|string',
+        'year' => 'required|integer'
+      ]);
+      $paper = new \App\Paper;
+      $paper->class_id = $request->class_id;
+      $paper->title = $request->title;
+      $paper->year = $request->year;
+      $paper->subject = $request->subject;
+      $paper->file_path = 'storage/'.$path;
+      $paper->school_id = auth()->user()->school_id;
+      $paper->user_id = auth()->user()->id;
+      $paper->save();
+    }
+      else if($request->upload_type == 'certificate'){
       $request->validate([
         'title' => 'required|string',
         'given_to' => 'required|int',

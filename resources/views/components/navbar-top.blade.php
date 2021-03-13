@@ -12,11 +12,15 @@
             </button>
 
             <!-- Branding Image -->
+            <span class="material-icons text-center navbar-brand" id="menu-btn">
+                menu
+            </span>
             <a class="navbar-brand" id="title-text" href="{{ url('/home') }}">
                 {{ (Auth::check() && (Auth::user()->role == 'student' || Auth::user()->role == 'teacher' ||
                 Auth::user()->role == 'admin' || Auth::user()->role == 'accountant' || Auth::user()->role ==
                 'librarian'))?Auth::user()->school->name:'SKULI EDU' }}
             </a>
+           
         </div>
 </div>
 <div class="col-md-10" style="padding-right: 5rem;">

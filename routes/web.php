@@ -101,6 +101,7 @@ Route::middleware(['auth', 'admin'])->prefix('academic')->name('academic.')->gro
     Route::get('routine', 'RoutineController@index');
     Route::get('routine/{section_id}', 'RoutineController@create');
     Route::prefix('remove')->name('remove.')->group(function () {
+        Route::get('papers/{id}', 'ExamController@deletePaper');
         Route::get('syllabus/{id}', 'SyllabusController@update');
         Route::get('notice/{id}', 'NoticeController@update');
         Route::get('event/{id}', 'EventController@update');
@@ -115,6 +116,8 @@ Route::middleware(['auth', 'student'])->group(function () {
 });
 
 Route::middleware(['auth', 'admin'])->prefix('exams')->name('exams.')->group(function () {
+    Route::get('papers','ExamController@papers');
+    Route::post('papers','ExamController@storePapers');
     Route::get('/', 'ExamController@index');
     Route::get('create', 'ExamController@create');
     Route::post('create', 'ExamController@store');

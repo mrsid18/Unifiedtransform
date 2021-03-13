@@ -87,6 +87,9 @@
       <li>
         <a class="dropdown-item" href="{{ url('exams') }}"><i class="material-icons">settings</i> <span class="nav-link-text">@lang('Manage Examinations')</span></a>
       </li>
+      <li>
+        <a class="dropdown-item" href="{{ url('exams/papers') }}"><i class="material-icons">insert_drive_file</i> <span class="nav-link-text">@lang('Past Year Question Papers')</span></a>
+      </li>
     </ul>
   </li>
   <li class="nav-item">

@@ -125,9 +125,7 @@ class RoutineController extends Controller
      */
     public function update($id)
     {
-      $tb = Routine::find($id);
-      $tb->active = 0;
-      $tb->save();
+      $tb = Routine::destroy($id);
       return back()->with('status',__('File removed'));
     }
 
